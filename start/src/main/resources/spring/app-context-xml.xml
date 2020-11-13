@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!--    внедрение через конструктор-->
+    <bean id="provider" class="ch3.xml.ConfiguraЬleMessageProvider">
+        <constructor-arg value="I hope that someone gets my message in а bottle"/>
+    </bean>
+
+    <bean id="oracle" name="wiseworm" class="ch3.BookwormOracle"/>
+    <bean id="injectRef" class="ch3.xml.InjectRef">
+        <property name="oracle">
+            <ref bean="wiseworm"/>
+        </property>
+    </bean>
+
+    <!--    внедрение через сеттеры-->
+<!--    <bean id="renderer" class="ch2.decoupled.StandardOutMessageRenderer"/>-->
+<!--        <property name="messageProvider" ref="provider" />-->
+<!--    </bean>-->
+
+</beans>
+
+<!--        xmlns:c="http://www.springframework.org/schema/c"-->
