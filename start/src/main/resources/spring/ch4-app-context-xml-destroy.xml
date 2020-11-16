@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!--        default-destroy-method="destroy">-->
+    <bean id="destructiveBean" class="ch4.DestructiveBean"
+        destroy-method="destroy">
+    <property name="filePath" value="/home/oleg/IdeaProjects/Spring/start/src/main/resources/123.txt"/>
+    </bean>
+
+</beans>
+
+<!--        xmlns:c="http://www.springframework.org/schema/c"-->
