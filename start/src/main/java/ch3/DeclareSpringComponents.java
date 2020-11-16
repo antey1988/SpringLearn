@@ -11,7 +11,7 @@ public class DeclareSpringComponents {
         ctx.load("/spring/app-context-annotation.xml");
         ctx.refresh();
 //        MessageRenderer mr = ctx.getBean("renderer", MessageRenderer.class);
-        MessageProvider mp = ctx.getBean("provider", MessageProvider.class);
+        MessageProvider mp = ctx.getBean("provider1", MessageProvider.class);
         System.out.println(mp.getMessage());
         ctx.close();
     }

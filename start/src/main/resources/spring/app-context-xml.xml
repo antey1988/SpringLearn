@@ -4,7 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
                 http://www.springframework.org/schema/beans/spring-beans.xsd">
 <!--    внедрение через конструктор-->
-    <bean id="provider" class="ch3.xml.ConfiguraЬleMessageProvider">
+    <bean id="provider" class="ch3.xml.ConfigurableMessageProvider">
         <constructor-arg value="I hope that someone gets my message in а bottle"/>
     </bean>
 
@@ -13,6 +13,10 @@
         <property name="oracle">
             <ref bean="wiseworm"/>
         </property>
+    </bean>
+
+    <bean id="singer" class="ch3.annotated.Singer" scope="prototype">
+        <constructor-arg value="John Mayere"/>
     </bean>
 
     <!--    внедрение через сеттеры-->

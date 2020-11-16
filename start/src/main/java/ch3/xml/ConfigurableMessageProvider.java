@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-@Service("provider")
+@Service("provider1")
 public class ConfigurableMessageProvider implements MessageProvider {
     private  String message;
     @Autowired

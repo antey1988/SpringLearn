@@ -10,7 +10,7 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 
-@Service("collectionInjection")
+//@Service("collectionInjection")
 public class Collectionlnjection {
     @Autowired
     @Qualifier("map")
