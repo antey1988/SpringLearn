@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-                http://www.springframework.org/schema/beans/spring-beans.xsd">
+                http://www.springframework.org/schema/beans/spring-beans.xsd
+                http://www.springframework.org/schema/context
+                http://www.springframework.org/schema/context/spring-context.xsd">
+                <context:annotation-config/>
 <!--        default-destroy-method="destroy">-->
-    <bean id="destructiveBean" class="ch4.DestructiveBean"
-        destroy-method="destroy">
+<!--    <bean id="destructiveBean" class="ch4.DestructiveBean">-->
+<!--    <bean id="destructiveBeanWithInterface" class="ch4.DestructiveBeanWithInterface">-->
+
+    <bean id="destructiveBeanWithJSR250" class="ch4.DestructiveBeanWithJSR250">
     <property name="filePath" value="/home/oleg/IdeaProjects/Spring/start/src/main/resources/123.txt"/>
     </bean>
 

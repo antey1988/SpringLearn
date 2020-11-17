@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!--interfaces-->
+    <!--<bean id="shaDigest" class="ch4.MessageDigestFactoryBean" >
+    <property name="algorithmName" value="SHA1"/>
+    </bean>
+
+    <bean id="defaultDigest" class="ch4.MessageDigestFactoryBean" />
+
+    <bean id="digester" class="ch4.MessageDigester" >
+        <property name="digest1" ref="shaDigest"/>
+        <property name="digest2" ref="defaultDigest"/>
+    </bean>-->
+<!--attribute-->
+    <bean id="shaDigestFactory" class="ch4.MessageDigestFactory" >
+        <property name="algorithmName" value="SHA1"/>
+    </bean>
+
+    <bean id="defaultDigestFactory" class="ch4.MessageDigestFactory" />
+
+    <bean id="shaDigest"
+        factory-bean="shaDigestFactory"
+        factory-method="createInstance">
+    </bean>
+
+    <bean id="defaultDigest"
+          factory-bean="defaultDigestFactory"
+          factory-method="createInstance">
+    </bean>
+
+    <bean id="digester" class="ch4.MessageDigester" >
+        <property name="digest1" ref="shaDigest"/>
+        <property name="digest2" ref="defaultDigest"/>
+    </bean>
+
+</beans>
+
+<!--        xmlns:c="http://www.springframework.org/schema/c"-->
