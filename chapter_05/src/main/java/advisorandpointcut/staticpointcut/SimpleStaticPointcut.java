@@ -1,4 +1,4 @@
-package advicorandpointcut.staticpointcut;
+package advisorandpointcut.staticpointcut;
 
 import org.springframework.aop.ClassFilter;
 import org.springframework.aop.support.StaticMethodMatcherPointcut;

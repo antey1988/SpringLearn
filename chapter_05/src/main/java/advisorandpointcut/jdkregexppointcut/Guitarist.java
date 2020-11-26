@@ -1,4 +1,4 @@
-package advicorandpointcut.jdkregexppointcut;
+package advisorandpointcut.jdkregexppointcut;
 
 import advice.methodbeforeadvice.Singer;
 

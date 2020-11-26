@@ -1,4 +1,4 @@
-package advicorandpointcut.dynamicpointcut;
+package advisorandpointcut.dynamicpointcut;
 
 public class SampleBean {
     public void foo(int x) {

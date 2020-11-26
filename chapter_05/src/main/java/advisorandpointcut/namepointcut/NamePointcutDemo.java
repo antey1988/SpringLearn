@@ -1,6 +1,6 @@
-package advicorandpointcut.namepointcut;
+package advisorandpointcut.namepointcut;
 
-import advicorandpointcut.staticpointcut.SimpleAdvice;
+import advisorandpointcut.staticpointcut.SimpleAdvice;
 import org.springframework.aop.Advisor;
 import org.springframework.aop.framework.ProxyFactory;
 import org.springframework.aop.support.DefaultPointcutAdvisor;

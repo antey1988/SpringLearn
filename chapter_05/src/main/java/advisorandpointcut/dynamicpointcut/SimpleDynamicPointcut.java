@@ -1,4 +1,4 @@
-package advicorandpointcut.dynamicpointcut;
+package advisorandpointcut.dynamicpointcut;
 
 import org.springframework.aop.ClassFilter;
 import org.springframework.aop.support.DynamicMethodMatcherPointcut;

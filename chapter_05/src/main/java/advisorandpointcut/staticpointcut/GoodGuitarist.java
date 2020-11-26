@@ -1,4 +1,4 @@
-package advicorandpointcut.staticpointcut;
+package advisorandpointcut.staticpointcut;
 
 import advice.methodbeforeadvice.Singer;
 

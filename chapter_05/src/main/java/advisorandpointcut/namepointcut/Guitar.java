@@ -1,4 +1,4 @@
-package advicorandpointcut.namepointcut;
+package advisorandpointcut.namepointcut;
 
 public class Guitar {
     public String play(){
