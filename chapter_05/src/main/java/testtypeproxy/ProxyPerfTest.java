@@ -4,7 +4,6 @@ import org.springframework.aop.Advisor;
 import org.springframework.aop.framework.Advised;
 import org.springframework.aop.framework.ProxyFactory;
 import org.springframework.aop.support.DefaultPointcutAdvisor;
-import org.springframework.cglib.proxy.NoOp;
 
 public class ProxyPerfTest {
     public static void main(String[] args) {
