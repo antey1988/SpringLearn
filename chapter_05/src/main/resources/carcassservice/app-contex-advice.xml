@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation =
+               "http://www.springframework.org/schema/beans
+                http://www.springframework.org/schema/beans/spring-beans.xsd
+                http://www.springframework.org/schema/util
+                http://www.springframework.org/schema/util/spring-util.xsd
+                http://www.springframework.org/schema/aop
+                http://www.springframework.org/schema/aop/spring-aop.xsd">
+<!--    <aop:config proxy-target-class="true"/>-->
+
+        <bean id="johnMayer" class = "aopbasics.advisorandpointcut.namepointcut.GrammyGuitarist"/>
+
+        <bean id="advice" class="carcassservices.AuditAdvice"/>
+
+        <bean id="documentaristOne" class="carcassservices.Documentarist">
+            <property name="guitarist" ref="proxyOne"/>
+        </bean>
+
+        <util:list id="interceptorAdviceNames">
+            <value>advice</value>
+        </util:list>
+
+        <bean id="proxyOne" class="org.springframework.aop.framework.ProxyFactoryBean">
+            <property name="target" ref="johnMayer"/>
+            <property name="interceptorNames" ref="interceptorAdviceNames"/>
+            <property name="proxyTargetClass" value="true"/>
+        </bean>
+
+        <bean id="advisor" class="org.springframework.aop.support.DefaultPointcutAdvisor">
+            <property name="advice" ref="advice"/>
+            <property name="pointcut">
+                <bean class="org.springframework.aop.aspectj.AspectJExpressionPointcut">
+                    <property name="expression" value="execution(* sing*(..))"/>
+                </bean>
+            </property>
+        </bean>
+
+        <util:list id="interceptorAdvisorNames">
+            <value>advisor</value>
+        </util:list>
+
+        <bean id="proxyTwo" class="org.springframework.aop.framework.ProxyFactoryBean">
+            <property name="target" ref="johnMayer"/>
+            <property name="interceptorNames" ref="interceptorAdvisorNames"/>
+            <property name="proxyTargetClass" value="true"/>
+        </bean>
+
+        <bean id="documentaristTwo" class="carcassservices.Documentarist">
+            <property name="guitarist" ref="proxyTwo"/>
+        </bean>
+</beans>

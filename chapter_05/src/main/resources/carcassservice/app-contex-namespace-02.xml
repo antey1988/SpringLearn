@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation =
+               "http://www.springframework.org/schema/beans
+                http://www.springframework.org/schema/beans/spring-beans.xsd
+                http://www.springframework.org/schema/util
+                http://www.springframework.org/schema/util/spring-util.xsd
+                http://www.springframework.org/schema/aop
+                http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <aop:config proxy-target-class="true">
+        <aop:pointcut id="singExecution" expression="execution(* sing*(aopbasics.advisorandpointcut.namepointcut.Guitar))
+                                                     and args(value)
+                                                     and bean(john*)"/>
+        <aop:aspect ref="advice">
+            <aop:before pointcut-ref="singExecution"
+                        method="simpleBeforeAdvice"
+                        arg-names="value"/>
+        </aop:aspect>
+    </aop:config>
+
+    <bean id="advice" class="carcassservices.ComplexAdvice"/>
+    <bean id="johnMayer" class="aopbasics.advisorandpointcut.namepointcut.GrammyGuitarist"/>
+    <bean id="documentarist" class="carcassservices.NewDocumentarist">
+        <property name="guitarist" ref="johnMayer"/>
+    </bean>
+</beans>

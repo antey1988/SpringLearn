@@ -1,9 +1,9 @@
 package carcassservices;
 
-import advisorandpointcut.namepointcut.GrammyGuitarist;
+import aopbasics.advisorandpointcut.namepointcut.GrammyGuitarist;
 
 public class Documentarist {
-    private GrammyGuitarist guitarist;
+    protected GrammyGuitarist guitarist;
 
     public void execute() {
         guitarist.sing();
