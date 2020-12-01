@@ -10,7 +10,7 @@
                 </encoder>
         </appender>
 
-<!--        <logger name = "dao" level = "debug"/>-->
+<!--        <logger name = "entryjdbc.dao" level = "debug"/>-->
         <logger name = "org.springframework" level = "off"/>
          <root level="debug">
                  <appender-ref ref = "console"/>

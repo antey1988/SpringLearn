@@ -1,6 +1,8 @@
-import dao.PlainSingerDao;
-import dao.SingerDao;
-import entities.Singer;
+package entryjdbc;
+
+import entryjdbc.dao.PlainSingerDao;
+import entryjdbc.dao.SingerDao;
+import entryjdbc.entities.Singer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

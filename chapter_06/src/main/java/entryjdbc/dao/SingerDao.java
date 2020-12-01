@@ -1,6 +1,6 @@
-package dao;
+package entryjdbc.dao;
 
-import entities.Singer;
+import entryjdbc.entities.Singer;
 
 import java.util.List;
 
