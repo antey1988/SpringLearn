@@ -1,4 +1,4 @@
-package annotaspectj;
+package annotaspectj.annot;
 
 import aopbasics.advisorandpointcut.namepointcut.Guitar;
 import carcassservices.Documentarist;
@@ -7,8 +7,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component("documentarist")
-public class NewDocumentarist extends Documentarist {
-    protected GrammyGuitarist guitarist;
+public class Annot_NewDocumentarist extends Documentarist {
+    protected Annot_GrammyGuitarist guitarist;
 
     @Override
     public void execute() {
@@ -18,11 +18,12 @@ public class NewDocumentarist extends Documentarist {
         guitarist.sing(guitar);
         guitarist.sing(new Guitar());
         guitarist.talk();
+        System.out.println("");
     }
 
     @Autowired
     @Qualifier("johnMayer")
-    public void setGuitarist(GrammyGuitarist guitarist)  {
+    public void setGuitarist(Annot_GrammyGuitarist guitarist)  {
         this.guitarist = guitarist;
     }
 }

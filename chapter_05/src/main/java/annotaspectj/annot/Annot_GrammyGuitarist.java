@@ -1,11 +1,11 @@
-package annotaspectj;
+package annotaspectj.annot;
 
 import aopbasics.advice.methodbeforeadvice.Singer;
 import aopbasics.advisorandpointcut.namepointcut.Guitar;
 import org.springframework.stereotype.Component;
 
 @Component("johnMayer")
-public class GrammyGuitarist implements Singer {
+public class Annot_GrammyGuitarist implements Singer {
     @Override
     public void sing() {
         System.out.println("sing: Gravity is working against me\n" +

@@ -1,4 +1,4 @@
-package annotaspectj;
+package annotaspectj.annot;
 
 import aopbasics.advisorandpointcut.namepointcut.Guitar;
 import org.aspectj.lang.JoinPoint;
@@ -11,36 +11,36 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Aspect
-public class AnnotationAdvice {
-//    @Pointcut("execution(* sing*(aopbasics.advisorandpointcut.namepointcut.Guitar))")
-//     && args(value)
+public class Annot_AnnotationAdvice {
+
     @Pointcut("execution(* sing*(aopbasics.advisorandpointcut.namepointcut.Guitar)) && args(value)")
-    public void singExecution(Guitar value) {}
+    public void singExecution(Guitar value) {
+    }
 
-//    @Pointcut("bean(john*)")
-//    public void isJohn() {}
+    @Pointcut("bean(john*)")
+    public void isJohn() {}
 
-    @Before("singExecution(value)")
+    @Before("singExecution(value) && isJohn() ")
     public void  simpleBeforeAdvice(JoinPoint joinPoint, Guitar value) {
-//        if (value.getBrand().equals("Gibson")) {
+        if (value.getBrand().equals("Gibson")) {
             System.out.println("Executing: "
                     + joinPoint.getSignature().getDeclaringTypeName()
                     + joinPoint.getSignature().getName());
-//        }
+        }
     }
 
-    @Around("singExecution(value)")
+    @Around("singExecution(value) && isJohn()")
     public Object simpleAroundAdvice(ProceedingJoinPoint pjp, Guitar value) throws Throwable {
         System.out.println("Before execution: "
                 + pjp.getSignature().getDeclaringTypeName() + " "
                 + pjp.getSignature().getName()
-//                + " argument: " + value.getBrand()
+                + "\nargument: " + value.getBrand()
         );
         Object retVal = pjp.proceed();
         System.out.println("After execution: "
                 + pjp.getSignature().getDeclaringTypeName() + " "
                 + pjp.getSignature().getName()
-//                + " argument: " + value.getBrand()
+                + "\nargument: " + value.getBrand()
         );
         return retVal;
     }
