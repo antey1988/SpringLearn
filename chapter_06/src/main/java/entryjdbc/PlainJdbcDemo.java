@@ -15,7 +15,7 @@ public class PlainJdbcDemo {
     private static Logger logger = LoggerFactory.getLogger(PlainJdbcDemo.class);
 
     public static void main(String[] args) {
-        logger.info("Listing initial singer datat:");
+        logger.info("Listing initial singer data:");
         listAllSinger();
 
         logger.info("------------------");
@@ -25,13 +25,13 @@ public class PlainJdbcDemo {
         singer.setLastName("Sheeran");
         singer.setBirthDate(new Date(new GregorianCalendar(1991, 2, 1991).getTime().getTime()));
         singerDao.insert(singer);
-        logger.info("Listing singer data after ne singer created:");
+        logger.info("Listing singer data after new singer created:");
         listAllSinger();
 
         logger.info("------------------");
-        logger.info("Deleting the previois created singer");
+        logger.info("Deleting the previous created singer");
         singerDao.delete(singer.getId());
-        logger.info("Listing singer data after ne singer deleted:");
+        logger.info("Listing singer data after new singer deleted:");
         listAllSinger();
     }
 
