@@ -7,9 +7,6 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.jdbc.core.JdbcTemplate;
 import springjdbc.usesdao.dao.SingerDao;
 
-import javax.sql.DataSource;
-import java.util.List;
-
 public class JdbcSingerDao implements SingerDao, InitializingBean {
     private JdbcTemplate jdbcTemplate;
 
