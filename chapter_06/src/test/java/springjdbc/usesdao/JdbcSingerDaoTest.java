@@ -1,7 +1,10 @@
 package springjdbc.usesdao;
 
 import org.junit.*;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.GenericApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
+import springjdbc.usesdao.config.JdbcSingerDaoСfg;
 import springjdbc.usesdao.dao.SingerDao;
 
 import static org.junit.Assert.*;
@@ -19,7 +22,7 @@ public class JdbcSingerDaoTest {
     }
 
     @Test
-    public void testH2DB() {
+    public void testH2DBXml() {
         GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
         ctx.load("classpath:config/drivermanager-cfg-02.xml");
         ctx. refresh();

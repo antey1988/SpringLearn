@@ -5,20 +5,21 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
-import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 import springjdbc.usesdao.JdbcSingerDao;
+import springjdbc.usesdao.JdbcSingerDaoResultSetExtractor;
+import springjdbc.usesdao.JdbcSingerDaoRowMapper;
 
 import javax.sql.DataSource;
 import java.sql.Driver;
 
 @Configuration
 @PropertySource(value = "classpath:config/jdbc2.properties")
-public class JdbcSingerСfgH2 {
-    private static Logger logger = LoggerFactory.getLogger(JdbcSingerСfgH2.class);
+public class JdbcSingerDaoСfg {
+    private static Logger logger = LoggerFactory.getLogger(JdbcSingerDaoСfg.class);
 
     @Value("${driverClassName}")
     private String driverClassName;
@@ -51,14 +52,28 @@ public class JdbcSingerСfgH2 {
     }
 
     @Bean
-    public JdbcTemplate jdbcTemplate() {
-        return new JdbcTemplate(dataSource());
+    public NamedParameterJdbcTemplate namedParameterJdbcTemplate() {
+        return new NamedParameterJdbcTemplate(dataSource());
     }
 
     @Bean
     public JdbcSingerDao jdbcSingerDao() {
         JdbcSingerDao jdbcSingerDao = new JdbcSingerDao();
-        jdbcSingerDao.setJdbcTemplate(jdbcTemplate());
+        jdbcSingerDao.setNamedParameterJdbcTemplate(namedParameterJdbcTemplate());
         return jdbcSingerDao;
+    }
+
+    @Bean
+    public JdbcSingerDaoRowMapper jdbcSingerDaoRowMapper() {
+        JdbcSingerDaoRowMapper jdbcSingerDaoRowMapper = new JdbcSingerDaoRowMapper();
+        jdbcSingerDaoRowMapper.setNamedParameterJdbcTemplate(namedParameterJdbcTemplate());
+        return jdbcSingerDaoRowMapper;
+    }
+
+    @Bean
+    public JdbcSingerDaoResultSetExtractor jdbcSingerDaoResultSetExtractor() {
+        JdbcSingerDaoResultSetExtractor jdbcSingerDaoResultSetExtractor = new JdbcSingerDaoResultSetExtractor();
+        jdbcSingerDaoResultSetExtractor.setNamedParameterJdbcTemplate(namedParameterJdbcTemplate());
+        return jdbcSingerDaoResultSetExtractor;
     }
 }

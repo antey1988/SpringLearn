@@ -4,7 +4,6 @@ import entryjdbc.entities.Singer;
 import org.apache.commons.lang3.NotImplementedException;
 import org.springframework.beans.factory.BeanCreationException;
 import org.springframework.beans.factory.InitializingBean;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import springjdbc.usesdao.dao.SingerDao;
@@ -15,7 +14,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class JdbcSingerDao implements SingerDao, InitializingBean {
+public class JdbcSingerDaoRowMapper implements SingerDao, InitializingBean {
 
 //    private JdbcTemplate jdbcTemplate;
     private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
@@ -49,12 +48,20 @@ public class JdbcSingerDao implements SingerDao, InitializingBean {
 
     @Override
     public List<Singer> findAll() {
-        throw new NotImplementedException("findAll");
+        String sql = "select id, first_name, last_name, birth_date from singer";
+        return namedParameterJdbcTemplate.query(sql, (rs, i)->{
+            Singer singer = new Singer();
+            singer.setId(rs.getLong("id"));
+            singer.setFirstName(rs.getString("first_name"));
+            singer.setLastName(rs.getString("last_name"));
+            singer.setBirthDate(rs.getDate("birth_date"));
+            return singer;
+        });
     }
 
     @Override
     public List<Singer> findAllWithAlbums() {
-        throw new NotImplementedException("findAll");
+        throw new NotImplementedException("findAllWithAlbums");
     }
 
     @Override
@@ -62,4 +69,5 @@ public class JdbcSingerDao implements SingerDao, InitializingBean {
         if (namedParameterJdbcTemplate == null)
             throw new BeanCreationException("Must set " + namedParameterJdbcTemplate.getClass().getSimpleName() +" on SingerDao");
     }
+
 }

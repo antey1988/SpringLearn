@@ -1,29 +1,21 @@
 package springjdbc.usesdao;
 
+import entryjdbc.entities.Singer;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.GenericApplicationContext;
-import org.springframework.context.support.GenericXmlApplicationContext;
-import springjdbc.usesdao.config.JdbcSingerСfgH2;
+import springjdbc.usesdao.config.JdbcSingerDaoСfg;
 import springjdbc.usesdao.dao.SingerDao;
+
+import java.util.List;
 
 import static org.junit.Assert.*;
 
-public class JdbcSingerCfgH2Test {
-    /*@Test
-    public void testEmbeddedH2DB() {
-        GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
-        ctx.load("classpath:config/embedded-h2-cfg.xml");
-        ctx.refresh();
-        SingerDao singerDao = ctx.getBean("singerDao", SingerDao.class);
-        testDaoOnPresent(singerDao);
-        testDaoNotPresent(singerDao);
-        ctx.close();
-    }*/
+public class JdbcSingerDaoCfgTest {
 
     @Test
-    public void testH2DB() {
-        GenericApplicationContext ctx = new AnnotationConfigApplicationContext(JdbcSingerСfgH2.class);
+    public void testJdbcSingerDao() {
+        GenericApplicationContext ctx = new AnnotationConfigApplicationContext(JdbcSingerDaoСfg.class);
         SingerDao singerDao = ctx.getBean("jdbcSingerDao", SingerDao.class);
         testDaoOnPresent(singerDao);
         testDaoNotPresent(singerDao);

@@ -18,8 +18,8 @@
               <property name ="password" value="#{jdbc.dbpassword}"/>
         </bean>
         <bean id="singerDao" class="springjdbc.usesdao.JdbcSingerDao">
-            <property name="jdbcTemplate">
-                <bean class="org.springframework.jdbc.core.JdbcTemplate">
+            <property name="namedParameterJdbcTemplate">
+                <bean class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
                     <constructor-arg name="dataSource" ref="dataSource"/>
                 </bean>
             </property>
