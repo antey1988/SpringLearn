@@ -10,7 +10,7 @@ import java.util.List;
 
 public class PlainSingerDao implements  SingerDao{
     private static final String DB_URL = "jdbc:h2:" +
-            "/home/oleg/IdeaProjects/Spring/chapter_06/src/main/resources/database/MUSIC";
+            "/home/oleg/IdeaProjects/Spring/chapter_06/src/test/resources/database/MUSIC6";
 
     private static Logger logger = LoggerFactory.getLogger(PlainSingerDao.class);
     static {
