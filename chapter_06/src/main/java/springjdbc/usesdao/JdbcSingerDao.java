@@ -48,6 +48,17 @@ public class JdbcSingerDao implements SingerDao, InitializingBean {
     }
 
     @Override
+    public void update(Singer singer) {
+        throw new NotImplementedException("insert");
+
+    }
+
+    @Override
+    public List<Singer> findByFirstName(String firstName) {
+        throw new NotImplementedException("findByFirstName");
+    }
+
+    @Override
     public List<Singer> findAll() {
         throw new NotImplementedException("findAll");
     }

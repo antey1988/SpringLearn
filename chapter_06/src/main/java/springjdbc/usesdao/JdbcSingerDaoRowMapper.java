@@ -47,6 +47,17 @@ public class JdbcSingerDaoRowMapper implements SingerDao, InitializingBean {
     }
 
     @Override
+    public void update(Singer singer) {
+        throw new NotImplementedException("insert");
+
+    }
+
+    @Override
+    public List<Singer> findByFirstName(String firstName) {
+        throw new NotImplementedException("findByFirstName");
+    }
+
+    @Override
     public List<Singer> findAll() {
         String sql = "select id, first_name, last_name, birth_date from singer";
         return namedParameterJdbcTemplate.query(sql, (rs, i)->{
