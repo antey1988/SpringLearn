@@ -586,3 +586,7 @@ Column "date_birth" not found [42122-200]
 	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:33)
 	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:220)
 	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:53)
+2020-12-04 09:02:38 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "ALBUMON" не найдена
+Table "ALBUMON" not found; SQL statement:
+select s.id, s.first_name, s.last_name, s.birth_date,a.id as album_id, a.singer_id, a.title, a.release_date from singer as sleft join albumon s.id = a.singer_id [42102-200]

@@ -4,6 +4,7 @@ import entryjdbc.entities.Singer;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.GenericApplicationContext;
+import springjdbc.usesdao.config.JdbcSingerDaoXmlСfg;
 import springjdbc.usesdao.config.JdbcSingerDaoСfg;
 import springjdbc.usesdao.dao.SingerDao;
 
@@ -26,10 +27,11 @@ public class JdbcSingerDaoRowMapperCfgTest {
     @Test
     public void testJdbcSingerDaoResultSetExtractor() {
         GenericApplicationContext ctx = new AnnotationConfigApplicationContext(JdbcSingerDaoСfg.class);
+//        GenericApplicationContext ctx = new AnnotationConfigApplicationContext(JdbcSingerDaoXmlСfg.class);
         SingerDao singerDao = ctx.getBean("jdbcSingerDaoResultSetExtractor", SingerDao.class);
         testDaoOnPresent(singerDao);
         testDaoNotPresent(singerDao);
-        testGetThreeRecords(singerDao);
+        testGetThreeRecordsWithAlbums(singerDao);
         ctx.close();
     }
 
@@ -48,6 +50,13 @@ public class JdbcSingerDaoRowMapperCfgTest {
     private void testGetThreeRecords(SingerDao singerDao) {
         assertNotNull(singerDao);
         List<Singer> singers = singerDao.findAll();
+        assertEquals(singers.size(), 3);
+        testPrintAllRecords(singers);
+    }
+
+    private void testGetThreeRecordsWithAlbums(SingerDao singerDao) {
+        assertNotNull(singerDao);
+        List<Singer> singers = singerDao.findAllWithAlbums();
         assertEquals(singers.size(), 3);
         testPrintAllRecords(singers);
     }

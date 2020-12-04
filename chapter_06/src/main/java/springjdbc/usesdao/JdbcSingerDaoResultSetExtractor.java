@@ -55,10 +55,10 @@ public class JdbcSingerDaoResultSetExtractor implements SingerDao, InitializingB
     @Override
     public List<Singer> findAllWithAlbums() {
 //        throw new NotImplementedException("select all records");
-        String sql = "select s.id, s.first_name, s.last_name, s.birth_date," +
+        String sql = "select s.id, s.first_name, s.last_name, s.birth_date, " +
                 "a.id as album_id, a.singer_id, a.title, a.release_date " +
-                "from singer as s" +
-                "left join album" +
+                "from singer as s " +
+                "left join album as a " +
                 "on s.id = a.singer_id";
         return namedParameterJdbcTemplate.query(sql, new SingerWithDetailExtractor());
     }
