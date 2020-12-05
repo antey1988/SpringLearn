@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.ImportResource;
 
 @Configuration
-@ImportResource(value = "classpath:spring/annotated/app-context-01.xml")
+//@ImportResource(value = "classpath:spring/annotated/app-context-01.xml")
 public class AppConfigFive {
     @Autowired
     MessageProvider provider;

@@ -16,7 +16,7 @@ import javax.sql.DataSource;
 import java.sql.Date;
 
 @Configuration
-@PropertySource(value = "classpath:config/jdbc3.properties")
+@PropertySource(value = "classpath:config/jdbc2.properties")
 @ComponentScan(basePackages = "springjdbc.usesdao.annot")
 public class AnnotJdbcSingerDaoСfg {
     private static Logger logger = LoggerFactory.getLogger(AnnotJdbcSingerDaoСfg.class);

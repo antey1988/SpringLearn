@@ -1,5 +1,6 @@
 package carcassservices;
 
+import aopbasics.advisorandpointcut.namepointcut.GrammyGuitarist;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
 public class ProxyFactoryDemo {
@@ -13,6 +14,7 @@ public class ProxyFactoryDemo {
 //        GrammyGuitarist johnMayer = ctx.getBean("proxyOne", GrammyGuitarist.class);
 
         System.out.println("Documentaris One >>");
+//        johnMayer.sing();
         documentaristOne.execute();
         System.out.println("\nDocumentaris Two >>");
         documentaristTwo.execute();

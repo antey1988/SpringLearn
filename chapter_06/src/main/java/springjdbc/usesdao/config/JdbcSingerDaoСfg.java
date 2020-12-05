@@ -17,7 +17,7 @@ import javax.sql.DataSource;
 import java.sql.Driver;
 
 @Configuration
-@PropertySource(value = "classpath:config/jdbc3.properties")
+@PropertySource(value = "classpath:config/jdbc2.properties")
 public class JdbcSingerDaoСfg {
     private static Logger logger = LoggerFactory.getLogger(JdbcSingerDaoСfg.class);
 

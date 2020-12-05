@@ -34,13 +34,13 @@ public class AnnotJdbcSingerDaoTest {
     @Test
     public void testFindAll() {
         List<Singer> singers = singerDao.findAll();
-        assertEquals(3, singers.size());
+        assertEquals(4, singers.size());
         printSingers(singers);
     }
 
     @Test
     public void testFindByFirstName() {
-        List<Singer> singers = singerDao.findByFirstName("John");
+        List<Singer> singers = singerDao.findByFirstName("John Clayton");
         assertEquals(1, singers.size());
         printSingers(singers);
     }

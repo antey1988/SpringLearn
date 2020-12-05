@@ -10,25 +10,25 @@
         <context:annotation-config/>
 <!--        default-init-method="init">-->
 
-<!--    <bean id="singerOne" class="ch4.SingerWithInitMethod" >          -->
-<!--        init-method="init">-->
+    <bean id="singerOne" class="ch4.Singer"
+        init-method="init">
     <!--    <bean id="singerThree" class="ch4.SingerWithInterface" >-->
-    <bean id="singerOne" class="ch4.SingerWithJSR250" >
+<!--    <bean id="singerOne" class="ch4.SingerWithJSR250" >-->
     <property name="name" value="John Mayer"/>
         <property name="age" value="39"/>
     </bean>
 
-<!--    <bean id="singerTwo" class="ch4.SingerWithInitMethod" >-->
+    <bean id="singerTwo" class="ch4.Singer"
+            init-method="init">
     <!--    <bean id="singerThree" class="ch4.SingerWithInterface" >-->
-    <bean id="singerTwo" class="ch4.SingerWithJSR250" >
-<!--        init-method="init">-->
+<!--    <bean id="singerTwo" class="ch4.SingerWithJSR250" >-->
         <property name="age" value="39"/>
     </bean>
 
-<!--    <bean id="singerThree" class="ch4.SingerWithInitMethod" >-->
+    <bean id="singerThree" class="ch4.Singer"
+            init-method="init">
 <!--    <bean id="singerThree" class="ch4.SingerWithInterface" >-->
-    <bean id="singerThree" class="ch4.SingerWithJSR250" >
-<!--        init-method="init">-->
+<!--    <bean id="singerThree" class="ch4.SingerWithJSR250" >-->
         <property name="name" value="John Mayer"/>
     </bean>
 

@@ -38,7 +38,7 @@ public class JdbcSingerDaoRowMapperCfgTest {
     private void testDaoOnPresent(SingerDao singerDao) {
         assertNotNull(singerDao);
         String singerName = singerDao.findNameById(1L);
-        assertEquals("John Mayer", singerName);
+        assertEquals("John Clayton Mayer", singerName);
     }
 
     private void testDaoNotPresent(SingerDao singerDao) {
@@ -50,14 +50,14 @@ public class JdbcSingerDaoRowMapperCfgTest {
     private void testGetThreeRecords(SingerDao singerDao) {
         assertNotNull(singerDao);
         List<Singer> singers = singerDao.findAll();
-        assertEquals(singers.size(), 3);
+        assertEquals(singers.size(), 4);
         testPrintAllRecords(singers);
     }
 
     private void testGetThreeRecordsWithAlbums(SingerDao singerDao) {
         assertNotNull(singerDao);
         List<Singer> singers = singerDao.findAllWithAlbums();
-        assertEquals(singers.size(), 3);
+        assertEquals(singers.size(), 4);
         testPrintAllRecords(singers);
     }
 

@@ -25,7 +25,7 @@ public class JdbcSingerDaoCfgTest {
     private void testDaoOnPresent(SingerDao singerDao) {
         assertNotNull(singerDao);
         String singerName = singerDao.findNameById(1L);
-        assertEquals("John Mayer", singerName);
+        assertEquals("John Clayton Mayer", singerName);
     }
 
     private void testDaoNotPresent(SingerDao singerDao) {
