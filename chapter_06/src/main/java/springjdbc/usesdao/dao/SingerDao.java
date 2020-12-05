@@ -2,7 +2,6 @@ package springjdbc.usesdao.dao;
 
 import entryjdbc.entities.Singer;
 
-import java.sql.SQLException;
 import java.util.List;
 
 public interface SingerDao {
@@ -10,6 +9,7 @@ public interface SingerDao {
     List<Singer> findByFirstName(String firstName);
     String findNameById(Long id);
     List<Singer> findAllWithAlbums();
+    void insertWithAlbums(Singer singer);
     void insert(Singer singer);
     void update(Singer singer);
 }

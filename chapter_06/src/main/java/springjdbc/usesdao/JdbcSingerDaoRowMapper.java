@@ -4,12 +4,9 @@ import entryjdbc.entities.Singer;
 import org.apache.commons.lang3.NotImplementedException;
 import org.springframework.beans.factory.BeanCreationException;
 import org.springframework.beans.factory.InitializingBean;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import springjdbc.usesdao.dao.SingerDao;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -68,6 +65,11 @@ public class JdbcSingerDaoRowMapper implements SingerDao, InitializingBean {
             singer.setBirthDate(rs.getDate("birth_date"));
             return singer;
         });
+    }
+
+    @Override
+    public void insertWithAlbums(Singer singer) {
+        throw new NotImplementedException("insertWithAlbums");
     }
 
     @Override

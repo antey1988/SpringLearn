@@ -2,6 +2,7 @@ package springjdbc.usesdao;
 
 import static org.junit.Assert.*;
 
+import entryjdbc.entities.Album;
 import entryjdbc.entities.Singer;
 import org.junit.After;
 import org.junit.Before;
@@ -12,6 +13,7 @@ import springjdbc.usesdao.config.AnnotJdbcSingerDaoСfg;
 import springjdbc.usesdao.dao.SingerDao;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 public class AnnotJdbcSingerDaoTest {
@@ -68,6 +70,27 @@ public class AnnotJdbcSingerDaoTest {
         singerDao.insert(singer);
         singers = singerDao.findAll();
         printSingers(singers);
+    }
+
+    @Test
+    public void testInsertSingerWithAlbums() {
+        printSingers(singerDao.findAllWithAlbums());
+
+        Singer singer = new Singer();
+        singer.setFirstName("BB");
+        singer.setLastName("King");
+        singer.setBirthDate(Date.valueOf("1940-8-16"));
+        Album album = new Album();
+        album.setTitle("My Kings of Blues");
+        album.setReleaseDate(Date.valueOf("1961-8-15"));
+        singer.addAlbum(album);
+        album = new Album();
+        album.setTitle("A Heart Full of Blues");
+        album.setReleaseDate(Date.valueOf("1962-5-24"));
+        singer.addAlbum(album);
+        singerDao.insertWithAlbums(singer);
+
+        printSingers(singerDao.findAllWithAlbums());
     }
 
     private void printSingers(List<Singer> singers) {
