@@ -10,7 +10,30 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>chapter_07</artifactId>
+
+    <properties>
+        <hibernate-entitymanager.version>5.4.25.Final</hibernate-entitymanager.version>
+        <spring-orm.version>${spring.version}</spring-orm.version>
+    </properties>
+
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-entitymanager -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>${hibernate-entitymanager.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-orm -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>${spring-orm.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>${h2database.version}</version>
+        </dependency>
     </dependencies>
 
 </project>
