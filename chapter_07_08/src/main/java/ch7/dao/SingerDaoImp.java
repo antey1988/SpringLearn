@@ -1,12 +1,9 @@
-package dao;
+package ch7.dao;
 
-import entities.Singer;
-import org.apache.commons.lang3.NotImplementedException;
+import ch7.entities.Singer;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.SessionFactory;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 

@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>chapter_07</artifactId>
+    <artifactId>chapter_07_08</artifactId>
 
     <properties>
         <hibernate-entitymanager.version>5.4.25.Final</hibernate-entitymanager.version>

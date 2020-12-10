@@ -1,6 +1,6 @@
-package dao;
+package ch7.dao;
 
-import entities.Singer;
+import ch7.entities.Singer;
 
 import java.util.List;
 

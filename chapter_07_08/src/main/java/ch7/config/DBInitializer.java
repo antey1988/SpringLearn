@@ -1,10 +1,10 @@
-package config;
+package ch7.config;
 
-import dao.InstrumentDao;
-import dao.SingerDao;
-import entities.Album;
-import entities.Instrument;
-import entities.Singer;
+import ch7.dao.InstrumentDao;
+import ch7.dao.SingerDao;
+import ch7.entities.Album;
+import ch7.entities.Instrument;
+import ch7.entities.Singer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,8 +12,6 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 @Service
 public class DBInitializer {

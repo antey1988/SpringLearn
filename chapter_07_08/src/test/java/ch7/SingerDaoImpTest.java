@@ -1,8 +1,9 @@
-package dao;
+package ch7;
 
-import config.AppConfig;
-import entities.Album;
-import entities.Singer;
+import ch7.dao.SingerDao;
+import ch7.config.AppConfig;
+import ch7.entities.Album;
+import ch7.entities.Singer;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
