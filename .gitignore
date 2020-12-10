@@ -6,4 +6,4 @@ target/
 *.txt
 *.iml
 .idea/
-*.trace.db
+*.*.db
