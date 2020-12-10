@@ -20,6 +20,7 @@ import java.util.Set;
                         "where s.id = :id")
 })
 public class Singer implements Serializable {
+
     private Long id;
     private String firstName;
     private String lastName;
@@ -101,6 +102,16 @@ public class Singer implements Serializable {
 
     public void setAlbums(Set<Album> albums) {
         this.albums = albums;
+    }
+
+    public boolean addInstrument(Instrument instrument) {
+        instrument.getSingers().add(this);
+        return getInstruments().add(instrument);
+    }
+
+    public void removeInstrument(Instrument instrument) {
+        getInstruments().remove(instrument);
+        instrument.getSingers().remove(this);
     }
 
     public void setInstruments(Set<Instrument> instruments) {

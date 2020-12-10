@@ -5,6 +5,8 @@ import org.apache.commons.lang3.NotImplementedException;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.SessionFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -54,11 +56,14 @@ public class SingerDaoImp implements SingerDao {
 
     @Override
     public Singer save(Singer contact) {
-        throw new NotImplementedException("save");
+        sessionFactory.getCurrentSession().saveOrUpdate(contact);
+        logger.info("Singer saved with id: " + contact.getId());
+        return contact;
     }
 
     @Override
     public void delete(Singer contact) {
-        throw new NotImplementedException("delete");
+        sessionFactory.getCurrentSession().delete(contact);
+        logger.info("Singer deleted with id: " + contact.getId());
     }
 }

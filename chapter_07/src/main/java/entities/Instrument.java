@@ -10,7 +10,7 @@ import java.util.Set;
 public class Instrument implements Serializable {
 
     private String instrumentId;
-    private Set<Singer> singer = new HashSet<>();
+    private Set<Singer> singers = new HashSet<>();
 
     @Id
     @Column(name = "INSTRUMENT_ID")
@@ -22,16 +22,21 @@ public class Instrument implements Serializable {
     @JoinTable(name = "SINGER_INSTRUMENT",
             joinColumns = @JoinColumn(name = "INSTRUMENT_ID"),
             inverseJoinColumns = @JoinColumn(name = "SINGER_ID"))
-    public Set<Singer> getSinger() {
-        return singer;
+    public Set<Singer> getSingers() {
+        return singers;
     }
 
     public void setInstrumentId(String instrumentId) {
         this.instrumentId = instrumentId;
     }
 
-    public void setSinger(Set<Singer> singer) {
-        this.singer = singer;
+    /*public boolean addSinger(Singer singer) {
+        singer.getInstruments().add(this);
+        return getSingers().add(singer);
+    }*/
+
+    public void setSingers(Set<Singer> singers) {
+        this.singers = singers;
     }
 
     @Override
