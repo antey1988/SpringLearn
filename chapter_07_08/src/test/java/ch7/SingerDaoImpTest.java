@@ -116,13 +116,9 @@ public class SingerDaoImpTest {
         singers.forEach(singer -> {
             logger.info(singer.toString());
             if (singer.getAlbums() != null)
-                singer.getAlbums().forEach(album -> {
-                    logger.info("\t" + album.toString());
-                });
+                singer.getAlbums().forEach(album -> logger.info("\t" + album.toString()));
             if (singer.getInstruments() != null)
-                singer.getInstruments().forEach(instrument -> {
-                    logger.info("\t" + instrument.toString());
-                });
+                singer.getInstruments().forEach(instrument -> logger.info("\t" + instrument.toString()));
         });
     }
 }
