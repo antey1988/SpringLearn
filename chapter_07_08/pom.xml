@@ -12,7 +12,8 @@
     <artifactId>chapter_07_08</artifactId>
 
     <properties>
-        <hibernate-entitymanager.version>5.4.25.Final</hibernate-entitymanager.version>
+        <hibernate-entitymanager.version>5.4.27.Final</hibernate-entitymanager.version>
+        <hibernate-jpa-2.1-api.version>1.0.2.Final</hibernate-jpa-2.1-api.version>
         <spring-orm.version>${spring.version}</spring-orm.version>
     </properties>
 
@@ -29,6 +30,13 @@
             <artifactId>spring-orm</artifactId>
             <version>${spring-orm.version}</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.hibernate.javax.persistence/hibernate-jpa-2.1-api -->
+        <dependency>
+            <groupId>org.hibernate.javax.persistence</groupId>
+            <artifactId>hibernate-jpa-2.1-api</artifactId>
+            <version>${hibernate-jpa-2.1-api.version}</version>
+        </dependency>
+
     </dependencies>
 
 </project>
