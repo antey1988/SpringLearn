@@ -1,6 +1,7 @@
 package ch8.services;
 
 import ch8.entities.Singer;
+import ch8.metamodel.Singer_;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
@@ -10,9 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
+import javax.persistence.criteria.*;
 import java.util.List;
 
 @Service("jpaSingerService")
@@ -77,9 +76,28 @@ public class SingerServiceImpl implements SingerService{
     public List<Singer> findByCriteriaQuery(String firstname, String lastName) {
         logger.info("Finding singer for firstName: " + firstname +
                 " and lastName: " + lastName);
+
         CriteriaBuilder cb = em.getCriteriaBuilder();
+
         CriteriaQuery<Singer> criteriaQuery = cb.createQuery(Singer.class);
+
         Root<Singer> singerRoot = criteriaQuery.from(Singer.class);
-        return null;
+        singerRoot.fetch(Singer_.ALBUMS, JoinType.LEFT);
+        singerRoot.fetch(Singer_.INSTRUMENTS, JoinType.LEFT);
+
+        criteriaQuery.select(singerRoot).distinct(true);
+
+        Predicate criteria = cb.conjunction();
+        if (firstname != null) {
+            Predicate p = cb.equal(singerRoot.get(Singer_.FIRST_NAME), firstname);
+            criteria = cb.and(criteria, p);
+        }
+        if (lastName != null) {
+            Predicate p = cb.equal(singerRoot.get(Singer_.LAST_NAME), lastName);
+            criteria = cb.and(criteria, p);
+        }
+
+        criteriaQuery.where(criteria);
+        return em.createQuery(criteriaQuery).getResultList();
     }
 }

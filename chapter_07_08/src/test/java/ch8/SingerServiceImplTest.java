@@ -116,4 +116,14 @@ public class SingerServiceImplTest {
         singerService.delete(singer);
         listSingersWithAlbums(singerService.findAllWithAlbum());
     }
+
+    @Test
+    public void testFindByCriteriaQuery() {
+        List<Singer> singers = singerService.findByCriteriaQuery("John", "Mayer");
+//        List<Singer> singers = singerService.findByCriteriaQuery("John", null);
+//        List<Singer> singers = singerService.findByCriteriaQuery(null, "Mayer");
+//        List<Singer> singers = singerService.findByCriteriaQuery(null, null);
+        Assert.assertEquals(1, singers.size());
+        listSingersWithAlbums(singers);
+    }
 }
