@@ -11,4 +11,6 @@ public interface SingerService {
     Singer findById(Long id);
     Singer save(Singer singer);
     void delete(Singer singer);
+
+    List<Singer> findByCriteriaQuery(String firstname, String lastName);
 }

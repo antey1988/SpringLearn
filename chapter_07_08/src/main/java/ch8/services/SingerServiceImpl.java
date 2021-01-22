@@ -10,6 +10,9 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import java.util.List;
 
 @Service("jpaSingerService")
@@ -56,7 +59,7 @@ public class SingerServiceImpl implements SingerService{
             em.persist(singer);
         } else {
             em.merge(singer);
-            logger.info("Updating existig singer");
+            logger.info("Updating existing singer");
         }
         logger.info("Singer saved with id: " + singer.getId());
         return singer;
@@ -67,5 +70,16 @@ public class SingerServiceImpl implements SingerService{
         Singer mergeSinger = em.merge(singer);
         em.remove(mergeSinger);
         logger.info("Singer with id: " + singer.getId() + " deleted successfully");
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<Singer> findByCriteriaQuery(String firstname, String lastName) {
+        logger.info("Finding singer for firstName: " + firstname +
+                " and lastName: " + lastName);
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery<Singer> criteriaQuery = cb.createQuery(Singer.class);
+        Root<Singer> singerRoot = criteriaQuery.from(Singer.class);
+        return null;
     }
 }
