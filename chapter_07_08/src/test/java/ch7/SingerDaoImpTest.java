@@ -1,5 +1,6 @@
 package ch7;
 
+import ch7.config.AppConfig;
 import ch7.dao.SingerDao;
 import ch7.entities.Album;
 import ch7.entities.Singer;
