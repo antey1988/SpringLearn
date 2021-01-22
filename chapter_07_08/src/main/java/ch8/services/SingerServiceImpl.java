@@ -36,8 +36,10 @@ public class SingerServiceImpl implements SingerService{
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Singer> findAllByNativeQuery() {
-        return null;
+//        return em.createNativeQuery(ALL_SINGER_NATIVE_QUERY, Singer.class).getResultList();
+        return em.createNativeQuery(ALL_SINGER_NATIVE_QUERY, "singerResult").getResultList();
     }
 
     @Override
