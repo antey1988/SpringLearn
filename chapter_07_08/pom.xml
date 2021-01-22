@@ -16,6 +16,7 @@
         <hibernate-jpa-2.1-api.version>1.0.2.Final</hibernate-jpa-2.1-api.version>
         <spring-orm.version>${spring.version}</spring-orm.version>
         <querydsl-apt.version>3.7.4</querydsl-apt.version>
+        <spring-data-jpa.version>2.3.6.RELEASE</spring-data-jpa.version>
     </properties>
 
     <dependencies>
@@ -50,6 +51,12 @@
             <artifactId>querydsl-apt</artifactId>
             <version>${querydsl-apt.version}</version>
             <scope>provided</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-jpa -->
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
+            <version>${spring-data-jpa.version}</version>
         </dependency>
 
     </dependencies>
