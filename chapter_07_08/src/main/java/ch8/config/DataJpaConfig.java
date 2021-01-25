@@ -22,9 +22,10 @@ import java.util.Properties;
 @Configuration
 @EnableTransactionManagement
 @ComponentScan(basePackages = "ch8.services")
-public class JpaConfig {
+@EnableJpaRepositories(basePackages = "ch8.services")
+public class DataJpaConfig {
 
-    private static Logger logger = LoggerFactory.getLogger(JpaConfig.class);
+    private static Logger logger = LoggerFactory.getLogger(DataJpaConfig.class);
 
     @Bean
     public DataSource dataSource() {

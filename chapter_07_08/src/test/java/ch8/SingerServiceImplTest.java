@@ -119,11 +119,11 @@ public class SingerServiceImplTest {
 
     @Test
     public void testFindByCriteriaQuery() {
-        List<Singer> singers = singerService.findByCriteriaQuery("John", "Mayer");
-//        List<Singer> singers = singerService.findByCriteriaQuery("John", null);
+//        List<Singer> singers = singerService.findByCriteriaQuery("John", "Mayer");
+        List<Singer> singers = singerService.findByCriteriaQuery("John", null);
 //        List<Singer> singers = singerService.findByCriteriaQuery(null, "Mayer");
 //        List<Singer> singers = singerService.findByCriteriaQuery(null, null);
-        Assert.assertEquals(1, singers.size());
+        Assert.assertEquals(2, singers.size());
         listSingersWithAlbums(singers);
     }
 }

@@ -13,4 +13,5 @@ public interface SingerService {
     void delete(Singer singer);
 
     List<Singer> findByCriteriaQuery(String firstname, String lastName);
+
 }
