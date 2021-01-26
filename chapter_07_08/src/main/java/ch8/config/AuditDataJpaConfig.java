@@ -53,8 +53,8 @@ public class AuditDataJpaConfig {
         HibernateProperties.put("hibernate.max_fetch_depth", 3);
         HibernateProperties.put("hibernate.jdbc.fetch_size",50);
         HibernateProperties.put("hibernate.jdbc.batch_size",10);
-        HibernateProperties.put("hibernate.show_sql",true);
-        HibernateProperties.put("hibernate.format_sql",true);
+        HibernateProperties.put("hibernate.show_sql",false);
+        HibernateProperties.put("hibernate.format_sql",false);
         HibernateProperties.put("hibernate.use_sql_comments",true);
         return HibernateProperties;
     }

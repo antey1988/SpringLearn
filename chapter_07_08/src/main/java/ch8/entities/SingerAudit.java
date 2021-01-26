@@ -2,14 +2,14 @@ package ch8.entities;
 
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedBy;
+import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
-import java.util.HashSet;
 import java.util.Optional;
-import java.util.Set;
 
 @Entity
 @EntityListeners(AuditingEntityListener.class)
@@ -44,11 +44,11 @@ public class SingerAudit implements Serializable {
     @Column(name = "CREATED_DATE")
     private Date createdDate;
 
-    @CreatedBy
+    @LastModifiedBy
     @Column(name = "LAST_MODIFIED_BY")
     private String lastModifiedBy;
 
-    @CreatedDate
+    @LastModifiedDate
     @Column(name = "LAST_MODIFIED_DATE")
     private Date lastModifiedDate;
 

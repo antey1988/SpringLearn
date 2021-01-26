@@ -7,8 +7,10 @@ import java.util.Optional;
 
 @Component("auditorAwareBean")
 public class AuditorAwareBean implements AuditorAware<String> {
+    private static boolean flag = true;
     @Override
     public Optional<String> getCurrentAuditor() {
-        return Optional.of("antey1988");
+        flag = !flag;
+        return flag ? Optional.of("Antey1988") : Optional.of("OlegPetrov");
     }
 }

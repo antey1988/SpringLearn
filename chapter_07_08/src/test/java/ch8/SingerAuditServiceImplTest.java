@@ -58,7 +58,18 @@ public class SingerAuditServiceImplTest {
         singers = singerAuditService.findAll();
         listSinger(singers);
 
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            logger.error("Break sleep");
+        }
 
+        logger.info("Update new singer");
+        singer.setFirstName("John Clayton");
+        singerAuditService.save(singer);
+        singers = singerAuditService.findAll();
+        listSinger(singers);
     }
 
 }

@@ -15,8 +15,9 @@
         <hibernate-entitymanager.version>5.4.27.Final</hibernate-entitymanager.version>
         <hibernate-jpa-2.1-api.version>1.0.2.Final</hibernate-jpa-2.1-api.version>
         <spring-orm.version>${spring.version}</spring-orm.version>
-        <querydsl-apt.version>3.7.4</querydsl-apt.version>
+        <spring-aspects.version>${spring.version}</spring-aspects.version>
         <spring-data-jpa.version>2.3.6.RELEASE</spring-data-jpa.version>
+        <querydsl-apt.version>3.7.4</querydsl-apt.version>
     </properties>
 
     <dependencies>
@@ -58,7 +59,12 @@
             <artifactId>spring-data-jpa</artifactId>
             <version>${spring-data-jpa.version}</version>
         </dependency>
-
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-aspects -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aspects</artifactId>
+            <version>${spring-aspects.version}</version>
+        </dependency>
     </dependencies>
 
 </project>
