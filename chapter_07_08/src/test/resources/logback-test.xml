@@ -12,12 +12,11 @@
         </appender>
 
 <!--        <logger name = "entryjdbc" level = "debug"/>-->
-        <logger name = "ch7.config" level = "debug"/>
         <logger name = "ch7" level = "debug"/>
-        <logger name = "ch7.entities" level = "debug"/>
+        <logger name = "ch8" level = "debug"/>
         <logger name = "org.springframework" level = "info"/>
         <logger name = "org.hibernate" level = "info"/>
-        <root level="info">
+        <root level="off">
                 <appender-ref ref = "console"/>
         </root>
 </configuration>

@@ -1,6 +1,7 @@
 package ch8.services;
 
 import ch8.entities.Singer;
+import ch8.repos.SingerRepository;
 import com.google.common.collect.Lists;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

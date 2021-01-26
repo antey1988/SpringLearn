@@ -1,4 +1,4 @@
-package ch8.services;
+package ch8.repos;
 
 import ch8.entities.Singer;
 import org.springframework.data.repository.CrudRepository;

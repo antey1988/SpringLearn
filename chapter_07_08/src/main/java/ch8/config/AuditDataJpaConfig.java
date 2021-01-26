@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
@@ -21,18 +22,19 @@ import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement
-@ComponentScan(basePackages = "ch8.services")
+@ComponentScan(basePackages = {"ch8.services", "ch8.component"})
 @EnableJpaRepositories(basePackages = "ch8.repos")
-public class DataJpaConfig {
+@EnableJpaAuditing(auditorAwareRef = "auditorAwareBean")
+public class AuditDataJpaConfig {
 
-    private static Logger logger = LoggerFactory.getLogger(DataJpaConfig.class);
+    private static Logger logger = LoggerFactory.getLogger(AuditDataJpaConfig.class);
 
     @Bean
     public DataSource dataSource() {
         try {
             EmbeddedDatabaseBuilder dbBuilder = new EmbeddedDatabaseBuilder();
             dbBuilder.setType(EmbeddedDatabaseType.H2);
-            dbBuilder.addScripts("classpath:sqlscript/schema.sql", "classpath:sqlscript/data.sql");
+            dbBuilder.addScripts("classpath:sqlscript/schema_audit.sql");
             return dbBuilder.build();
         } catch (Exception e) {
             logger.error("Embedded DataSource bean cannot be created!", e);
