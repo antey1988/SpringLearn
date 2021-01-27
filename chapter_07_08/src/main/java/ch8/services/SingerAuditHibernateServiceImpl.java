@@ -13,27 +13,17 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
-@Service("dataJpaSingerAuditService")
+@Service("dataJpaSingerAuditHibernateService")
 @Transactional
-public class SingerAuditServiceImpl implements SingerAuditService{
+public class SingerAuditHibernateServiceImpl extends SingerAuditServiceImpl implements SingerAuditHibernateService{
 
-    @Autowired
-    private SingerAuditRepository singerAuditRepository;
-
-    @Override
-    @Transactional(readOnly = true)
-    public List<SingerAudit> findAll() {
-        return Lists.newArrayList(singerAuditRepository.findAll());
-    }
+    @PersistenceContext
+    private EntityManager em;
 
     @Override
     @Transactional(readOnly = true)
-    public SingerAudit findById(Long id) {
-        return singerAuditRepository.findById(id).get();
-    }
-
-    @Override
-    public SingerAudit save(SingerAudit singer) {
-        return singerAuditRepository.save(singer);
+    public SingerAudit findByRevision(Long id, int revision) {
+        AuditReader auditReader = AuditReaderFactory.get(em);
+        return auditReader.find(SingerAudit.class, id, revision);
     }
 }

@@ -1,5 +1,6 @@
 package ch8.entities;
 
+import org.hibernate.envers.Audited;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
@@ -14,7 +15,8 @@ import java.util.Optional;
 @Entity
 @EntityListeners(AuditingEntityListener.class)
 @Table(name = "Singer_Audit")
-
+//Annotation for Hibernate Control Version
+@Audited
 public class SingerAudit implements Serializable {
 
     @Id
@@ -83,7 +85,6 @@ public class SingerAudit implements Serializable {
     public Date getBirthDate() {
         return this.birthDate;
     }
-
     public void setCreatedBy(String createdBy) {
         this.createdBy = createdBy;
     }
@@ -114,13 +115,14 @@ public class SingerAudit implements Serializable {
 
     @Override
     public String toString() {
-        return "Singer - id: " + id +
-                ", First name: " + firstName +
-                ", Last name: " + lastName +
-                ", Birthday: " + birthDate +
-                ", Created by: " + createdBy +
-                ", Created date: " + createdDate +
-                ", Modified by: " + lastModifiedBy +
-                ", Modified date: " + lastModifiedDate;
+        return "Singer - id: " + id
+                + ", First name: " + firstName
+                + ", Last name: " + lastName
+                + ", Birthday: " + birthDate
+                + ", Created by: " + createdBy
+                + ", Created date: " + createdDate
+                + ", Modified by: " + lastModifiedBy
+                + ", Modified date: " + lastModifiedDate
+                ;
     }
 }

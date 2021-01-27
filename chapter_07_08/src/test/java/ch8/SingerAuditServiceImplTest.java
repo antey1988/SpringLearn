@@ -29,7 +29,7 @@ public class SingerAuditServiceImplTest {
     @Before
     public void setUp() {
         ctx = new AnnotationConfigApplicationContext(AuditDataJpaConfig.class);
-        singerAuditService = ctx.getBean(SingerAuditService.class);
+        singerAuditService = ctx.getBean("dataJpaSingerAuditService", SingerAuditService.class);
         Assert.assertNotNull(singerAuditService);
     }
 

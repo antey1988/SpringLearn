@@ -35,10 +35,10 @@
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.hibernate.javax.persistence/hibernate-jpa-2.1-api -->
         <!--<dependency>
-            <groupId>org.hibernate.javax.persistence</groupId>
-            <artifactId>hibernate-jpa-2.1-api</artifactId>
-            <version>${hibernate-jpa-2.1-api.version}</version>
-        </dependency>-->
+        <groupId>org.hibernate.javax.persistence</groupId>
+        <artifactId>hibernate-jpa-2.1-api</artifactId>
+        <version>${hibernate-jpa-2.1-api.version}</version>
+    </dependency>-->
         <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-jpamodelgen -->
         <dependency>
             <groupId>org.hibernate</groupId>
@@ -65,6 +65,13 @@
             <artifactId>spring-aspects</artifactId>
             <version>${spring-aspects.version}</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-envers -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-envers</artifactId>
+            <version>${hibernate-entitymanager.version}</version>
+        </dependency>
+
     </dependencies>
 
 </project>
