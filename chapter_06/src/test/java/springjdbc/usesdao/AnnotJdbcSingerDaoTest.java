@@ -36,7 +36,7 @@ public class AnnotJdbcSingerDaoTest {
     @Test
     public void testFindAll() {
         List<Singer> singers = singerDao.findAll();
-        assertEquals(4, singers.size());
+        assertEquals(3, singers.size());
         printSingers(singers);
     }
 
@@ -51,15 +51,18 @@ public class AnnotJdbcSingerDaoTest {
     public void testUpdate() {
         Singer singer = ctx.getBean(Singer.class);
         List<Singer> singers = singerDao.findAll();
+        assertEquals(3, singers.size());
         printSingers(singers);
         singerDao.update(singer);
         singers = singerDao.findAll();
+        assertEquals(3, singers.size());
         printSingers(singers);
     }
 
     @Test
     public void testInsert() {
         List<Singer> singers = singerDao.findAll();
+        assertEquals(3, singers.size());
         printSingers(singers);
 
         Singer singer = new Singer();
@@ -69,6 +72,7 @@ public class AnnotJdbcSingerDaoTest {
 
         singerDao.insert(singer);
         singers = singerDao.findAll();
+        assertEquals(4, singers.size());
         printSingers(singers);
     }
 

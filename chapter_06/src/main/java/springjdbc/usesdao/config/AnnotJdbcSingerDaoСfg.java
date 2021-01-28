@@ -11,6 +11,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 
 import javax.sql.DataSource;
 import java.sql.Date;
@@ -45,7 +47,7 @@ public class AnnotJdbcSingerDaoСfg {
 
     @Bean
     public DataSource dataSource() {
-        try {
+        /*try {
             BasicDataSource dataSource = new BasicDataSource();
             dataSource.setDriverClassName(driverClassName);
             dataSource.setUrl(url);
@@ -55,6 +57,15 @@ public class AnnotJdbcSingerDaoСfg {
         } catch (Exception ex) {
             logger.error("DBCP DataSource bean cannot be created!", ex);
             return  null;
+        }*/
+        try {
+            EmbeddedDatabaseBuilder db = new EmbeddedDatabaseBuilder();
+            db.setType(EmbeddedDatabaseType.H2);
+            db.addScripts("classpath:sqlscript/schema.sql", "classpath:sqlscript/data.sql");
+            return db.build();
+        } catch (Exception e) {
+            logger.error("Embedded DataSource bean cannot be created!", e);
+            return null;
         }
     }
 

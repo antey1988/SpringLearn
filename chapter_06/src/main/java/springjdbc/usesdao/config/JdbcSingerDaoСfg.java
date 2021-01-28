@@ -9,6 +9,8 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 import springjdbc.usesdao.JdbcSingerDao;
 import springjdbc.usesdao.JdbcSingerDaoResultSetExtractor;
 import springjdbc.usesdao.JdbcSingerDaoRowMapper;
@@ -17,10 +19,10 @@ import javax.sql.DataSource;
 import java.sql.Driver;
 
 @Configuration
-@PropertySource(value = "classpath:config/jdbc2.properties")
+//@PropertySource(value = "classpath:config/jdbc2.properties")
 public class JdbcSingerDaoСfg {
     private static Logger logger = LoggerFactory.getLogger(JdbcSingerDaoСfg.class);
-
+/*
     @Value("${driverClassName}")
     private String driverClassName;
     @Value("${url}")
@@ -48,8 +50,20 @@ public class JdbcSingerDaoСfg {
             return  dataSource;
         } catch (Exception ex) {
             return  null;
+        }*/
+    @Bean
+    public DataSource dataSource() {
+        try {
+        EmbeddedDatabaseBuilder db = new EmbeddedDatabaseBuilder();
+        db.setType(EmbeddedDatabaseType.H2);
+        db.addScripts("classpath:sqlscript/schema.sql", "classpath:sqlscript/data.sql");
+        return db.build();
+        } catch (Exception e) {
+            logger.error("Embedded DataSource bean cannot be created!", e);
+            return null;
         }
     }
+
 
     @Bean
     public NamedParameterJdbcTemplate namedParameterJdbcTemplate() {

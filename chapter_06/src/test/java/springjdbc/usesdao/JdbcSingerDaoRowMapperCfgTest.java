@@ -50,14 +50,14 @@ public class JdbcSingerDaoRowMapperCfgTest {
     private void testGetThreeRecords(SingerDao singerDao) {
         assertNotNull(singerDao);
         List<Singer> singers = singerDao.findAll();
-        assertEquals(singers.size(), 4);
+        assertEquals(singers.size(), 3);
         testPrintAllRecords(singers);
     }
 
     private void testGetThreeRecordsWithAlbums(SingerDao singerDao) {
         assertNotNull(singerDao);
         List<Singer> singers = singerDao.findAllWithAlbums();
-        assertEquals(singers.size(), 4);
+        assertEquals(singers.size(), 3);
         testPrintAllRecords(singers);
     }
 

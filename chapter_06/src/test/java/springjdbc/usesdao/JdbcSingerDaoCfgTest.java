@@ -19,6 +19,12 @@ public class JdbcSingerDaoCfgTest {
         SingerDao singerDao = ctx.getBean("jdbcSingerDao", SingerDao.class);
         testDaoOnPresent(singerDao);
         testDaoNotPresent(singerDao);
+        singerDao = ctx.getBean("jdbcSingerDaoRowMapper", SingerDao.class);
+        testDaoOnPresent(singerDao);
+        testDaoNotPresent(singerDao);
+        singerDao = ctx.getBean("jdbcSingerDaoResultSetExtractor", SingerDao.class);
+        testDaoOnPresent(singerDao);
+        testDaoNotPresent(singerDao);
         ctx.close();
     }
 
