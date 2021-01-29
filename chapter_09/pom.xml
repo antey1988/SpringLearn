@@ -27,6 +27,7 @@
         <transactions-hibernate4.version>5.0.8</transactions-hibernate4.version>
 
         <apache.common-lang3.version>3.11</apache.common-lang3.version>
+        <guava.version>18.0</guava.version>
     </properties>
 
     <dependencies>
@@ -84,6 +85,13 @@
             <artifactId>commons-lang3</artifactId>
             <version>${apache.common-lang3.version}</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${guava.version}</version>
+        </dependency>
+
     </dependencies>
 
 </project>
