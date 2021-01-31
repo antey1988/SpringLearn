@@ -27,12 +27,17 @@ public class DataJpaConfig {
             SimpleDriverDataSource dataSource = new SimpleDriverDataSource();
             Class<? extends Driver> driver = (Class<? extends Driver>) Class.forName("org.h2.Driver");
             dataSource.setDriverClass(driver);
-            dataSource.setUrl("jdbc:h2:/home/oleg/IdeaProjects/Spring/chapter_09/src/test/resources/database/MUSIC");
+            String OS = System.getProperties().getProperty("os.name");
+            if (OS.startsWith("Windows")) {
+                dataSource.setUrl("jdbc:h2:E:\\Programming\\IdeaProjects\\SpringLearn\\chapter_09\\src\\main\\resources\\database\\MUSIC");
+            } else {
+                dataSource.setUrl("jdbc:h2:/home/oleg/IdeaProjects/Spring/chapter_09/src/test/resources/database/MUSIC");
+            }
             dataSource.setUsername("dba");
             dataSource.setPassword("sql");
             return dataSource;
         } catch (Exception e) {
-            logger.error("Populator DataSourse bean cannot be created!", e);
+            logger.error("Populator DataSourсe bean cannot be created!", e);
             return null;
         }
     }
