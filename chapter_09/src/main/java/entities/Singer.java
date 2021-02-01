@@ -39,6 +39,14 @@ public class Singer implements Serializable {
     @OneToMany(mappedBy = "singer", orphanRemoval = true, cascade = CascadeType.ALL)
     private Set<Album> album = new HashSet<>();
 
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
     @Override
     public String toString() {
         return "Singer - " +

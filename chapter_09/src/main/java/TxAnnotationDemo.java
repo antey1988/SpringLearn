@@ -14,6 +14,15 @@ public class TxAnnotationDemo {
 
         List<Singer> singers = singerService.findAll();
         singers.forEach(System.out::println);
+
+        Singer singer = singerService.findById(1L);
+        singer.setFirstName("John Clayton");
+
+        singer.setLastName("Mayer");
+        singerService.save(singer);
+        System.out.println("Singer saved successfully: " + singer);
+
+        System.out.println("Singer count: " + singerService.countAll());
         ctx.close();
     }
 }

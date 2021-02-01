@@ -6,5 +6,7 @@ import java.util.List;
 
 public interface SingerService {
     List<Singer> findAll();
-    int countAll();
+    Singer findById(Long id);
+    Singer save(Singer singer);
+    long countAll();
 }

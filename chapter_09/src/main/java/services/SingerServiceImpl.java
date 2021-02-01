@@ -26,7 +26,19 @@ public class SingerServiceImpl implements SingerService {
     }
 
     @Override
-    public int countAll() {
-        return 0;
+    @Transactional(readOnly = true)
+    public Singer findById(Long id) {
+        return singerRepository.findById(id).get();
+    }
+
+    @Override
+    public Singer save(Singer singer) {
+        return singerRepository.save(singer);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public long countAll() {
+        return singerRepository.countAllSinger();
     }
 }
