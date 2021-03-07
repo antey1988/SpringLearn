@@ -22,6 +22,7 @@ import java.util.Properties;
 @Configuration
 @EnableTransactionManagement
 @ComponentScan(basePackages = "ch8.services")
+@EnableJpaRepositories(basePackages = "ch8.repos")
 public class JpaConfig {
 
     private static Logger logger = LoggerFactory.getLogger(JpaConfig.class);
